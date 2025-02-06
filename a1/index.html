@@ -3,71 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Pokedex</title>
+    <title>Weather Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img width="30" height="30" class="d-inline-block align-text-top">
-                    Pokédex
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pokedex.html">Pokédex</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+    <!--This is referred from https://getbootstrap.com/docs/5.3/components/navbar/-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a href="index.html" target="_blank"> 
+                <img src="images/logo.png" alt="Mosam Logo" class="img-fluid" id="logo" style=" height: 80px; width: 80px;">
+            </a>  
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favourite.html">Favourite</a>
+                    </li>
+                </ul>
+                
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="images/dropdown.png" alt="Drop" id="dropdown" class="dropdown" >
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    
-    <div class="container text-center my-5">
-        <h1 class="display-4 text-danger">Welcome to the Pokedex</h1>
-        <p class="lead">Your ultimate guide to Pokemon!</p>
-        <a href="pokedex.html" class="btn btn-primary btn-lg">Explore Pokedex</a>
+        </div>
+    </nav>
+    <!--This is referred from https://getbootstrap.com/docs/4.0/components/input-group/-->
+    <div class="input-group mb-3">
+        <!--This form is referred from https://getbootstrap.com/docs/5.0/forms/form-control/-->>
+        <input type="text" class="form-control" id="city" placeholder="Search City">
+        <button class="btn btn-outline-secondary" type="button" id="search-btn">
+            <img src="images/search.png" alt="search" style="width: 30px; height:30px;">
+        </button>
+        <button class="btn btn-outline-warning" id="fav-btn">⭐ Favourite</button>
     </div>
-    <div class="container my-5">
-        <h1 class="text-center mb-4">Pokemon List</h1>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card">
-                    <img  >
-                    <div class="card-body">
-                        <h5 class="card-title">Pikachu</h5>
-                        <p class="card-text">Electric Type Pokemon.</p>
-                    </div>
+    <!--This is referred from https://getbootstrap.com/docs/5.0/layout/containers/-->
+    <div class="container">
+        <div class="row" id="hourly"></div>
+            <h2>Hourly Weather</h2>
+            <div class="d-flex justify-content-between">
+                <div class="card p-3 text-center" style="width: 18rem;" id="card0">
+                    <h5></h5>
+                    <p></p>
+                    
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Charmander</h5>
-                        <p class="card-text">Fire Type Poekon.</p>
-                    </div>
+                <div class="card p-3 text-center" style="width: 18rem;" id="card1">
+                    <h5></h5>
+                    <p></p>
+                </div>
+                <div class="card p-3 text-center" style="width: 18rem;" id="card2">
+                    <h5></h5>
+                    <p></p>
+                </div>
+                <div class="card p-3 text-center" style="width: 18rem;" id="card3">
+                    <h5></h5>
+                    <p></p>
+                </div>
+                <div class="card p-3 text-center" style="width: 18rem;" id="card4">
+                    <h5></h5>
+                    <p></p>
                 </div>
             </div>
         </div>
+    <!--This is referred from https://getbootstrap.com/docs/4.2/layout/grid/-->>
+        <div class="row mt-4">
+            <h2>Current Temperature</h2>
+            <div class="col text-center p-5 bg-light rounded" id="currentTem">
+                <h1></h1>
+            </div>
+        </div>
     </div>
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; </p>
-        <p>Designed by Raj</p>
+    <div class="row mt-4">
+        <h2>7-Day Weather Forecast</h2>
+        <div class="d-flex flex-wrap gap-3" id="weekly-weather"></div>
+    </div>
+
+    <div class="row mt-4">
+        <h2>Detailed Observations</h2>
+        <div class="d-flex justify-content-between" id="detailed">
+            <div class="card p-3 text-center" style="width: 15rem;">
+                <h5></h5>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="card p-3 text-center" style="width: 15rem;">
+                <h5></h5>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="card p-3 text-center" style="width: 15rem;">
+                <h5></h5>
+                <p></p>
+            </div>
+            <div class="card p-3 text-center" style="width: 15rem;">
+                <h5></h5>
+                <p></p>
+            </div>
+            <div class="card p-3 text-center" style="width: 15rem;">
+                <h5></h5>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Mousam. All rights reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
